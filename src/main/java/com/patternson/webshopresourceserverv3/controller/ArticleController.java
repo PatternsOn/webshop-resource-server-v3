@@ -50,14 +50,14 @@ public class ArticleController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-//    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('ADMIN')")
     public ArticleDTO createNewArticle(@Valid @RequestBody ArticleDTO articleDTO) {
         return articleService.createNewArticle(articleDTO);
     }
 
     @PutMapping({"/{id}"})
     @ResponseStatus(HttpStatus.OK)
-//    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('ADMIN')")
     public ArticleDTO updateArticle(@PathVariable Long id, @RequestBody ArticleDTO articleDTO) {
         System.out.println("Inne i update på resource server");
         return articleService.saveArticleByDTO(id, articleDTO);
@@ -73,7 +73,7 @@ public class ArticleController {
 //
     @DeleteMapping({"/{id}"})
     @ResponseStatus(HttpStatus.OK)
-//    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('ADMIN')")
     public void deleteArticle(@PathVariable Long id) {
         System.out.println("Inne i delete på resource server");
         articleService.deleteArticleById(id);
