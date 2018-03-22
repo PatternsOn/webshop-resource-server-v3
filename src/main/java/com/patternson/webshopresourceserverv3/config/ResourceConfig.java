@@ -32,8 +32,5 @@ public class ResourceConfig extends ResourceServerConfigurerAdapter {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authorizeRequests().anyRequest().permitAll();
-
-
-//                antMatchers("/**").access("#oauth2.hasScope('read')");
     }
 }
